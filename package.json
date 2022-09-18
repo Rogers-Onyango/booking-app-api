@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix booking-app-ui && npm run build --prefix booking-app-ui"
+    "heroku-postbuild":"cd booking-app-ui && npm install --only=dev && npm install && npm run build"
+  },
+  "engine":{
+    "node": "8.9.2"
   },
   "keywords": [],
   "author": "",

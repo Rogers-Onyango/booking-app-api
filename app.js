@@ -5,7 +5,12 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const path = require('path')
 //setting up the database
-mongoose.connect('mongodb://localhost:27017/BookingApp');
+mongoose.connect(process.env.DATABASE,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(()=>{
+    console.log('DB connected')
+});
 
 //Body Parser
 app.use(express.json())
@@ -33,10 +38,10 @@ app.use((err,req,res,next)=>{
 //Serve static assets if we are in production
 if(process.env.NODE_ENV === 'production'){
     //set static folder
-    app.use(express.static('booking-app-ui/build'))
+    app.use(express.static(path.join(__dirname, "booking-app-ui", "build")))
 
     app.get('*',(req,res)=>{
-        res.senfFile(path.resolve(__dirname, 'booking-app-ui', 'build', 'index.html'))
+        res.sendFile(path.join(__dirname, 'booking-app-ui', 'build', 'index.html'))
     })
 }
 
