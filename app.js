@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const path = require('path')
+require('dotenv').config()
 //setting up the database
 mongoose.connect(process.env.DATABASE,{
     useNewUrlParser: true,
