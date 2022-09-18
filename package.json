@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "heroku-postbuild":"cd booking-app-ui && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
-  "engine":{
-    "node": "8.9.2"
+  "engines":{
+    "node": "10.16.0"
   },
   "keywords": [],
   "author": "",
