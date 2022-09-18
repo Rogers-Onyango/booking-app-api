@@ -2,10 +2,10 @@
   "name": "bookingApp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix booking-app-ui && npm run build --prefix booking-app-ui"
   },
   "engines":{
     "node": "10.16.0"
