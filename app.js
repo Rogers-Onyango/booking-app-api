@@ -36,15 +36,6 @@ app.use((err,req,res,next)=>{
     })
 })
 
-//Serve static assets if we are in production
-if(process.env.NODE_ENV === 'production'){
-    //set static folder
-    app.use(express.static(path.join(__dirname, "booking-app-ui", "build")))
-
-    app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname, 'booking-app-ui', 'build', 'index.html'))
-    })
-}
 
 
 const PORT  = process.env.PORT || 8000
