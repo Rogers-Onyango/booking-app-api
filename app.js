@@ -17,7 +17,10 @@ mongoose.connect(process.env.DATABASE,{
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 //Middlewares
-app.use(cors())
+app.use(cors({
+    origin:["http://localhost:3000","https://inspiring-lolly-032eff.netlify.app"],
+    credentials:true
+}))
 app.use(cookieParser())
 //Routes middlewares
 app.use('/api/auth',require('./Routes/auth'))
