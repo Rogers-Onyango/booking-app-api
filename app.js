@@ -18,7 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 //Middlewares
 app.use(cors({
-    origin:["http://localhost:3000","https://inspiring-lolly-032eff.netlify.app"],
+    origin:'*',
     credentials:true
 }))
 app.use(cookieParser())
